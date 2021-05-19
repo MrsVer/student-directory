@@ -3,17 +3,21 @@ def input_students
     puts "To finish, just hit return twice"
     students = []
     name = gets.chomp
+    puts "please enter the cohort"
+    cohort = gets.chomp
     while !name.empty? do
-      students << {name: name, cohort: :november}
+      students << {name: name, cohort: cohort}
       puts "Now we have #{students.count} students"
       name = gets.chomp
-        puts"Please type a specific character"
-        character = gets.chomp
-        if name.include?(character) && name.length < 12
-            puts""
-        else
-            puts "Please give me another name."
-        end
+      puts "please enter the cohort"
+      cohort = gets.chomp
+        # puts"Please type a specific character"
+        # character = gets.chomp
+        # if name.include?(character) && name.length < 12
+        #     puts""
+        # else
+        #     puts "Please give me another name."
+        # end
     end
     students
   end
@@ -24,9 +28,12 @@ def input_students
   end
   
   def print(students)
-    students.each.with_index(1) do |student, index|
-      puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
+      i = 0
+      until i >= students.length
+        puts "-NAME: #{students[i][:name]}"
+        puts "-COHORT MONTH: #{students[i][:cohort]}"
+        i += 1
+      end 
   end
   
   def print_footer(students)
